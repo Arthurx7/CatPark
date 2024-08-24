@@ -6,7 +6,9 @@ using UnityEngine.InputSystem;
 public class Movimiento : MonoBehaviour
 {
     private PlayerMove player;
-    
+    private InputActionMap actionMap;
+    private PlayerInput playerInput;
+
     [Header("Movimiento jugador")]
     public Vector2 direccion;
     public Rigidbody rb;
@@ -17,31 +19,43 @@ public class Movimiento : MonoBehaviour
     [SerializeField] private LayerMask capaPiso;
 
     private bool puedeSaltar = false;
-    
+
     private void Awake()
     {
         player = new PlayerMove();
+        playerInput = GetComponent<PlayerInput>(); // Obtener el componente PlayerInput
+
+        if (playerInput != null)
+        {
+            actionMap = playerInput.currentActionMap; // Obtener el mapa de acciones activo
+        }
     }
 
     private void OnEnable()
     {
         player.Enable();
-        player.Player.Move.started += StartMove;
-        player.Player.Move.canceled += CancelMove;
-        player.Player.Salto.started += StartJump;
+        if (actionMap != null)
+        {
+            actionMap["Move"].started += StartMove;
+            actionMap["Move"].canceled += CancelMove;
+            actionMap["Salto"].started += StartJump;
+        }
     }
 
     private void OnDisable()
     {
         player.Disable();
-        player.Player.Move.started -= StartMove;
-        player.Player.Move.canceled -= CancelMove;
-        player.Player.Salto.started -= StartJump;
+        if (actionMap != null)
+        {
+            actionMap["Move"].started -= StartMove;
+            actionMap["Move"].canceled -= CancelMove;
+            actionMap["Salto"].started -= StartJump;
+        }
     }
 
     private void StartMove(InputAction.CallbackContext context)
     {
-        direccion = player.Player.Move.ReadValue<Vector2>();
+        direccion = context.ReadValue<Vector2>();
     }
 
     private void CancelMove(InputAction.CallbackContext context)
@@ -67,7 +81,7 @@ public class Movimiento : MonoBehaviour
         if (puedeSaltar)
         {
             rb.AddForce(Vector3.up * salto, ForceMode.VelocityChange);
-            puedeSaltar = false; 
+            puedeSaltar = false;
         }
     }
 
