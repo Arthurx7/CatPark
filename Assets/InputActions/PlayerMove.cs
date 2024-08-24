@@ -81,72 +81,6 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Control1"",
-                    ""id"": ""3aa1d9bf-3790-4dd3-9ba6-a4593e2f7104"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""62d97766-6268-45ab-9361-5aad1c4d2a39"",
-                    ""path"": ""<Gamepad>/dpad/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""9bd58f8f-f680-46fe-89ba-868b1f23d124"",
-                    ""path"": ""<Gamepad>/dpad/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Flechas"",
-                    ""id"": ""829d3db7-cbfa-4764-937b-f9a08c8e74a4"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""fdb8987b-e997-4c39-ab08-cae3f627809d"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Teclado"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""6dbe6b11-c8d0-4dab-8895-650edf298ef8"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Teclado"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""wsda"",
                     ""id"": ""d2a72254-3327-45cc-a480-51b1abddc1cf"",
                     ""path"": ""2DVector"",
@@ -182,9 +116,74 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Salto"",
+                    ""type"": ""Value"",
+                    ""id"": ""f415c601-416e-41ce-b4ce-9febf55e74d3"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
-            ""bindings"": []
+            ""bindings"": [
+                {
+                    ""name"": ""Flechas"",
+                    ""id"": ""65f9e9c2-1cd0-42ec-8fef-69b53eef965d"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""cb5d43c2-fb58-4d95-b0be-411aff63dee2"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Teclado"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""255740b1-8eaf-4023-8772-1b5aa04d08c0"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Teclado"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Flechas"",
+                    ""id"": ""0651ba12-7cdf-451e-a12a-039de7865e9d"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Salto"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""75241bc5-d49a-4d06-b8a1-2da700a715d8"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Salto"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         },
         {
             ""name"": ""Player3"",
@@ -194,6 +193,15 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
                     ""name"": ""Move"",
                     ""type"": ""Value"",
                     ""id"": ""12dfedee-5b3b-423b-b330-db2d9639fcbd"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Salto"",
+                    ""type"": ""Value"",
+                    ""id"": ""b6d3ed4a-1caa-4b55-ad59-770fb051d774"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -233,6 +241,28 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Control1"",
+                    ""id"": ""21af0d89-5fad-45fb-ad37-c5a694e60e11"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Salto"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""08632c9d-ddcd-401e-b2ff-45cb90610988"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Salto"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -241,26 +271,79 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
             ""id"": ""f2f0ed08-c362-47f0-aa6c-2a04fc0cb2c2"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
-                    ""id"": ""c575d464-1def-491c-913c-03745fa928d8"",
-                    ""expectedControlType"": ""Button"",
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""17a76df0-5e21-4439-b5d5-1447459cf015"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Salto"",
+                    ""type"": ""Value"",
+                    ""id"": ""515d9d44-6f33-44dd-a30e-3053d88fe486"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""67611fad-3ea1-495e-b071-ef273d919555"",
-                    ""path"": """",
+                    ""name"": ""ijkl"",
+                    ""id"": ""9a7cdd53-ae5f-40c4-ab3f-34fe080793eb"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
-                    ""isComposite"": false,
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""bbc5f863-df58-4e0f-aa0d-a44b86ec7e0b"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Teclado"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""96e05c52-2693-4a5b-8d84-391be57ba9bb"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Teclado"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""ijkl"",
+                    ""id"": ""a3c6f68d-eee3-4bd7-91fd-415c40d79e2e"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Salto"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""51eb7e4f-b1b0-4d72-9e54-07d1d77a960b"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Teclado"",
+                    ""action"": ""Salto"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -297,12 +380,15 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_Move = m_Player2.FindAction("Move", throwIfNotFound: true);
+        m_Player2_Salto = m_Player2.FindAction("Salto", throwIfNotFound: true);
         // Player3
         m_Player3 = asset.FindActionMap("Player3", throwIfNotFound: true);
         m_Player3_Move = m_Player3.FindAction("Move", throwIfNotFound: true);
+        m_Player3_Salto = m_Player3.FindAction("Salto", throwIfNotFound: true);
         // Player4
         m_Player4 = asset.FindActionMap("Player4", throwIfNotFound: true);
-        m_Player4_Newaction = m_Player4.FindAction("New action", throwIfNotFound: true);
+        m_Player4_Move = m_Player4.FindAction("Move", throwIfNotFound: true);
+        m_Player4_Salto = m_Player4.FindAction("Salto", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -419,11 +505,13 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player2;
     private List<IPlayer2Actions> m_Player2ActionsCallbackInterfaces = new List<IPlayer2Actions>();
     private readonly InputAction m_Player2_Move;
+    private readonly InputAction m_Player2_Salto;
     public struct Player2Actions
     {
         private @PlayerMove m_Wrapper;
         public Player2Actions(@PlayerMove wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player2_Move;
+        public InputAction @Salto => m_Wrapper.m_Player2_Salto;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -436,6 +524,9 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Salto.started += instance.OnSalto;
+            @Salto.performed += instance.OnSalto;
+            @Salto.canceled += instance.OnSalto;
         }
 
         private void UnregisterCallbacks(IPlayer2Actions instance)
@@ -443,6 +534,9 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Salto.started -= instance.OnSalto;
+            @Salto.performed -= instance.OnSalto;
+            @Salto.canceled -= instance.OnSalto;
         }
 
         public void RemoveCallbacks(IPlayer2Actions instance)
@@ -465,11 +559,13 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player3;
     private List<IPlayer3Actions> m_Player3ActionsCallbackInterfaces = new List<IPlayer3Actions>();
     private readonly InputAction m_Player3_Move;
+    private readonly InputAction m_Player3_Salto;
     public struct Player3Actions
     {
         private @PlayerMove m_Wrapper;
         public Player3Actions(@PlayerMove wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player3_Move;
+        public InputAction @Salto => m_Wrapper.m_Player3_Salto;
         public InputActionMap Get() { return m_Wrapper.m_Player3; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -482,6 +578,9 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Salto.started += instance.OnSalto;
+            @Salto.performed += instance.OnSalto;
+            @Salto.canceled += instance.OnSalto;
         }
 
         private void UnregisterCallbacks(IPlayer3Actions instance)
@@ -489,6 +588,9 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Salto.started -= instance.OnSalto;
+            @Salto.performed -= instance.OnSalto;
+            @Salto.canceled -= instance.OnSalto;
         }
 
         public void RemoveCallbacks(IPlayer3Actions instance)
@@ -510,12 +612,14 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
     // Player4
     private readonly InputActionMap m_Player4;
     private List<IPlayer4Actions> m_Player4ActionsCallbackInterfaces = new List<IPlayer4Actions>();
-    private readonly InputAction m_Player4_Newaction;
+    private readonly InputAction m_Player4_Move;
+    private readonly InputAction m_Player4_Salto;
     public struct Player4Actions
     {
         private @PlayerMove m_Wrapper;
         public Player4Actions(@PlayerMove wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Player4_Newaction;
+        public InputAction @Move => m_Wrapper.m_Player4_Move;
+        public InputAction @Salto => m_Wrapper.m_Player4_Salto;
         public InputActionMap Get() { return m_Wrapper.m_Player4; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -525,16 +629,22 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_Player4ActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_Player4ActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Salto.started += instance.OnSalto;
+            @Salto.performed += instance.OnSalto;
+            @Salto.canceled += instance.OnSalto;
         }
 
         private void UnregisterCallbacks(IPlayer4Actions instance)
         {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Salto.started -= instance.OnSalto;
+            @Salto.performed -= instance.OnSalto;
+            @Salto.canceled -= instance.OnSalto;
         }
 
         public void RemoveCallbacks(IPlayer4Actions instance)
@@ -578,13 +688,16 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
     public interface IPlayer2Actions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnSalto(InputAction.CallbackContext context);
     }
     public interface IPlayer3Actions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnSalto(InputAction.CallbackContext context);
     }
     public interface IPlayer4Actions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
+        void OnSalto(InputAction.CallbackContext context);
     }
 }

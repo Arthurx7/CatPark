@@ -59,72 +59,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Control1",
-                    "id": "3aa1d9bf-3790-4dd3-9ba6-a4593e2f7104",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "left",
-                    "id": "62d97766-6268-45ab-9361-5aad1c4d2a39",
-                    "path": "<Gamepad>/dpad/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "9bd58f8f-f680-46fe-89ba-868b1f23d124",
-                    "path": "<Gamepad>/dpad/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Flechas",
-                    "id": "829d3db7-cbfa-4764-937b-f9a08c8e74a4",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "left",
-                    "id": "fdb8987b-e997-4c39-ab08-cae3f627809d",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Teclado",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "6dbe6b11-c8d0-4dab-8895-650edf298ef8",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Teclado",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "wsda",
                     "id": "d2a72254-3327-45cc-a480-51b1abddc1cf",
                     "path": "2DVector",
@@ -160,9 +94,74 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Salto",
+                    "type": "Value",
+                    "id": "f415c601-416e-41ce-b4ce-9febf55e74d3",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
-            "bindings": []
+            "bindings": [
+                {
+                    "name": "Flechas",
+                    "id": "65f9e9c2-1cd0-42ec-8fef-69b53eef965d",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "cb5d43c2-fb58-4d95-b0be-411aff63dee2",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Teclado",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "255740b1-8eaf-4023-8772-1b5aa04d08c0",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Teclado",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Flechas",
+                    "id": "0651ba12-7cdf-451e-a12a-039de7865e9d",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Salto",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "75241bc5-d49a-4d06-b8a1-2da700a715d8",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Salto",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
         },
         {
             "name": "Player3",
@@ -172,6 +171,15 @@
                     "name": "Move",
                     "type": "Value",
                     "id": "12dfedee-5b3b-423b-b330-db2d9639fcbd",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Salto",
+                    "type": "Value",
+                    "id": "b6d3ed4a-1caa-4b55-ad59-770fb051d774",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -211,6 +219,28 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "Control1",
+                    "id": "21af0d89-5fad-45fb-ad37-c5a694e60e11",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Salto",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "08632c9d-ddcd-401e-b2ff-45cb90610988",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Salto",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
@@ -219,26 +249,79 @@
             "id": "f2f0ed08-c362-47f0-aa6c-2a04fc0cb2c2",
             "actions": [
                 {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "c575d464-1def-491c-913c-03745fa928d8",
-                    "expectedControlType": "Button",
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "17a76df0-5e21-4439-b5d5-1447459cf015",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Salto",
+                    "type": "Value",
+                    "id": "515d9d44-6f33-44dd-a30e-3053d88fe486",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "67611fad-3ea1-495e-b071-ef273d919555",
-                    "path": "",
+                    "name": "ijkl",
+                    "id": "9a7cdd53-ae5f-40c4-ab3f-34fe080793eb",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
+                    "action": "Move",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "bbc5f863-df58-4e0f-aa0d-a44b86ec7e0b",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Teclado",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "96e05c52-2693-4a5b-8d84-391be57ba9bb",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Teclado",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "ijkl",
+                    "id": "a3c6f68d-eee3-4bd7-91fd-415c40d79e2e",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Salto",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "51eb7e4f-b1b0-4d72-9e54-07d1d77a960b",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Teclado",
+                    "action": "Salto",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

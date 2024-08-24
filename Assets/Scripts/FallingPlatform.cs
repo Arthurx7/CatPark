@@ -21,7 +21,7 @@ public class FallingPlatform : MonoBehaviour
     {
         if(isFalling)
         {
-            downSpeed += Time.deltaTime;
+            downSpeed += Time.deltaTime/50;
             transform.position = new Vector3(transform.position.x, transform.position.y - downSpeed, transform.position.z);
         }
     }
