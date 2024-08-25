@@ -7,21 +7,26 @@ public class FallingPlatform : MonoBehaviour
     private bool isFalling = false;
     private float downSpeed = 0;
 
-    private void OnTriggerEnter(Collider collider) {
-
-        if(collider.gameObject.name=="Player")
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.name == "Player")
         {
-            isFalling = true;
-            Destroy(gameObject, 10);
+            StartCoroutine(StartFallingAfterDelay(1)); 
         }
     }
 
-    // Update is called once per frame
+    private IEnumerator StartFallingAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); 
+        isFalling = true;
+        Destroy(gameObject, 10);
+    }
+
     void Update()
     {
-        if(isFalling)
+        if (isFalling)
         {
-            downSpeed += Time.deltaTime/50;
+            downSpeed += Time.deltaTime/20;
             transform.position = new Vector3(transform.position.x, transform.position.y - downSpeed, transform.position.z);
         }
     }
