@@ -19,16 +19,25 @@ public class Movimiento : MonoBehaviour
     [SerializeField] private LayerMask capaPiso;
 
     private bool puedeSaltar = false;
+    private bool tieneJugadorEncima = false;
+    private bool estaSobreJugador = false;
+
+    private Vector3 currentRotation = Vector3.zero;
+    private GameObject jugadorDebajo;
 
     private void Awake()
     {
         player = new PlayerMove();
-        playerInput = GetComponent<PlayerInput>(); // Obtener el componente PlayerInput
+        playerInput = GetComponent<PlayerInput>();
 
         if (playerInput != null)
         {
-            actionMap = playerInput.currentActionMap; // Obtener el mapa de acciones activo
+            actionMap = playerInput.currentActionMap;
         }
+
+        // Inicializar el personaje mirando hacia la derecha
+        currentRotation = new Vector3(0, 90, 0);
+        transform.eulerAngles = currentRotation;
     }
 
     private void OnEnable()
@@ -65,8 +74,8 @@ public class Movimiento : MonoBehaviour
 
     private void StartJump(InputAction.CallbackContext context)
     {
-        // Solo permitimos el salto si el personaje está en el suelo.
-        if (enElPiso())
+        // Permitir el salto si el personaje está en el suelo y no tiene otro jugador encima.
+        if (enElPiso() && !tieneJugadorEncima)
         {
             puedeSaltar = true;
         }
@@ -74,8 +83,9 @@ public class Movimiento : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Movimiento
-        rb.velocity = new Vector3(velMov * direccion.x, rb.velocity.y, velMov * direccion.y);
+        // Movimiento del personaje
+        Vector3 movimiento = new Vector3(velMov * direccion.x, rb.velocity.y, velMov * direccion.y);
+        rb.velocity = movimiento;
 
         // Salto
         if (puedeSaltar)
@@ -83,10 +93,77 @@ public class Movimiento : MonoBehaviour
             rb.AddForce(Vector3.up * salto, ForceMode.VelocityChange);
             puedeSaltar = false;
         }
+
+        // Girar el personaje según la dirección
+        if (direccion.x > 0)
+        {
+            currentRotation = new Vector3(0, 90, 0); // Mirando a la derecha
+        }
+        else if (direccion.x < 0)
+        {
+            currentRotation = new Vector3(0, -90, 0); // Mirando a la izquierda
+        }
+        transform.eulerAngles = currentRotation;
+
+        // Si el personaje está sobre otro y el personaje de abajo se mueve, mover también al personaje de arriba.
+        if (estaSobreJugador && jugadorDebajo != null && jugadorDebajo.GetComponent<Movimiento>() != null)
+        {
+            Vector3 movimientoJugadorDebajo = jugadorDebajo.GetComponent<Movimiento>().direccion;
+            transform.position += new Vector3(movimientoJugadorDebajo.x * velMov * Time.fixedDeltaTime, 0, 0);
+        }
     }
 
     private bool enElPiso()
     {
-        return Physics.CheckSphere(checkPiso.position, 0.1f, capaPiso);
+        return Physics.CheckSphere(checkPiso.position, 0.1f, capaPiso) || estaSobreJugador;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Si estamos tocando a otro jugador por arriba
+            if (collision.contacts[0].point.y > transform.position.y)
+            {
+                tieneJugadorEncima = true;
+            }
+            // Si estamos tocando a otro jugador por abajo
+            else
+            {
+                estaSobreJugador = true;
+                jugadorDebajo = collision.gameObject;
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Restablecer las variables cuando termina la colisión
+            tieneJugadorEncima = false;
+            estaSobreJugador = false;
+            jugadorDebajo = null;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (collision.contacts.Length > 0)
+            {
+                // Actualizar el estado basado en la posición de los contactos
+                if (collision.contacts[0].point.y > transform.position.y)
+                {
+                    tieneJugadorEncima = true;
+                }
+                else
+                {
+                    estaSobreJugador = true;
+                    jugadorDebajo = collision.gameObject;
+                }
+            }
+        }
     }
 }
