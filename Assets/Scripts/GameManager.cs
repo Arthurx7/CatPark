@@ -21,4 +21,13 @@ public class GameManager : MonoBehaviour
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
     }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
+        }
+    }
 }
