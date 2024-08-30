@@ -25,6 +25,8 @@ public class Movimiento : MonoBehaviour
     private Vector3 currentRotation = Vector3.zero;
     private GameObject jugadorDebajo;
 
+    
+
     private void Awake()
     {
         player = new PlayerMove();

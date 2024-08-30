@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LaserScript : MonoBehaviour
+public class LaserLeft : MonoBehaviour
 {
     public Transform laserStart; // El punto de inicio del láser
     public GameObject shield1;    // Referencia al escudo del jugador
@@ -35,7 +35,7 @@ public class LaserScript : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-        Vector3 direction = Vector3.down; // Dirección del láser hacia la derecha
+        Vector3 direction = Vector3.left; // Dirección del láser hacia la derecha
 
         // Inicia el rayo desde laserStart hacia la derecha
         if (Physics.Raycast(laserStart.position, direction, out hit))
@@ -53,7 +53,7 @@ public class LaserScript : MonoBehaviour
                 currentImpactParticles.transform.position = hit.point;
 
                 // Asignar una rotación específica a las partículas
-                Quaternion desiredRotation = Quaternion.Euler(-90, -270, 0);
+                Quaternion desiredRotation = Quaternion.Euler(0, -270, 0);
                 currentImpactParticles.transform.rotation = desiredRotation;
 
                 if (!currentImpactParticles.activeInHierarchy)
