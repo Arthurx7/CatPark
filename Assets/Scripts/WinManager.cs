@@ -44,8 +44,8 @@ public class WinManager : MonoBehaviour
 
     void VictoriaMagistral()
     {
-        Debug.Log("Victoria");
-       // SceneManager.LoadScene("Finish");
+        
+        SceneManager.LoadScene("Final");
     }
 
 }

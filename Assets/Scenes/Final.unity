@@ -766,7 +766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionAnim: {fileID: 425233456}
-  sceneToLoad: Main
+  sceneToLoad: Inicio
 --- !u!95 &425233456
 Animator:
   serializedVersion: 5
