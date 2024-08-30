@@ -7,6 +7,7 @@ public class MoveToObject : MonoBehaviour
     public float speed;
     private Transform playerTransform;
     private bool isFollowingPlayer = false;
+    public WinManager winManager;
 
     void Update()
     {
@@ -23,6 +24,7 @@ public class MoveToObject : MonoBehaviour
             Debug.Log("Player entered trigger.");
             playerTransform = other.transform.GetChild(1);
             isFollowingPlayer = true;
+            winManager.tieneLlave = true;
         }
     }
 }

@@ -9,6 +9,8 @@ public class Movimiento2 : MonoBehaviour
     private InputActionMap actionMap;
     private PlayerInput playerInput;
 
+    public AudioSource saltoSound;
+
     [Header("Movimiento jugador")]
     public Vector2 direccion;
     public Rigidbody rb;
@@ -82,7 +84,7 @@ public class Movimiento2 : MonoBehaviour
         {
             puedeSaltar = true;
             animator.SetBool("isJumping", true); // Activar la animación de salto inmediatamente
-            Debug.Log("isJumping set to true (StartJump)"); // Agrega esta línea para depurar
+            saltoSound.Play();
         }
     }
 
@@ -125,13 +127,13 @@ public class Movimiento2 : MonoBehaviour
     {
         bool isWalking = movimiento.x != 0 || movimiento.z != 0;
         animator.SetBool("isWalking", isWalking);
-        Debug.Log("isWalking set to: " + isWalking); // Agrega esta línea para depurar
+    
 
         // Desactivar la animación de salto cuando aterriza en el suelo
         if (enElPiso())
         {
             animator.SetBool("isJumping", false);
-            Debug.Log("isJumping set to false (enElPiso)"); // Agrega esta línea para depurar
+          
         }
     }
 
