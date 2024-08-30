@@ -25,7 +25,7 @@ public class ShieldManager : MonoBehaviour
 
     int[] SelectRandomPlayers()
     {
-        int[] selectedPlayers = new int[2];
+        int[] selectedPlayers = new int[1];
         int firstPlayer = Random.Range(0, players.Length);
         int secondPlayer;
 
@@ -37,7 +37,7 @@ public class ShieldManager : MonoBehaviour
         while (secondPlayer == firstPlayer);
 
         selectedPlayers[0] = firstPlayer;
-        selectedPlayers[1] = secondPlayer;
+        
 
         return selectedPlayers;
     }

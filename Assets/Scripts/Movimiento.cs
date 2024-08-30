@@ -122,6 +122,7 @@ public class Movimiento : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+
             // Si estamos tocando a otro jugador por arriba
             if (collision.contacts[0].point.y > transform.position.y)
             {

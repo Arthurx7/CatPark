@@ -12,12 +12,19 @@ public class LaserScript : MonoBehaviour
     public GameObject shield4;
     public GameObject player4;
 
+    public GameObject impactParticlesPrefab; // Prefab de partículas de impacto
+    private GameObject currentImpactParticles; // Instancia actual de partículas
+
     private LineRenderer lineRenderer;
 
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.SetPosition(0, laserStart.position); // Posición inicial del láser
+
+        // Crear una instancia única de las partículas, pero desactivada inicialmente
+        currentImpactParticles = Instantiate(impactParticlesPrefab);
+        currentImpactParticles.SetActive(false);
     }
 
     void Update()
@@ -28,54 +35,68 @@ public class LaserScript : MonoBehaviour
         // Inicia el rayo desde laserStart hacia abajo
         if (Physics.Raycast(laserStart.position, direction, out hit))
         {
-            // Si el rayo detecta el escudo
-            if (hit.transform != null && hit.transform.CompareTag("Shield"))
-            {
-                lineRenderer.SetPosition(1, hit.point);
-            }
-            // Si el rayo detecta al jugador y el objeto no es nulo
-            else if (hit.transform != null && hit.transform == player1.transform)
-            {
-                // Destruye el objeto del jugador
-                Destroy(player1);
+            lineRenderer.SetPosition(1, hit.point);
 
-                // Evita intentar acceder al jugador después de destruirlo
-                player1 = null;
-            }
-            else if (hit.transform != null && hit.transform == player2.transform)
+            // Si el rayo detecta el escudo o el jugador
+            if (hit.transform != null && (hit.transform.CompareTag("Shield") ||
+                                          hit.transform == player1.transform ||
+                                          hit.transform == player2.transform ||
+                                          hit.transform == player3.transform ||
+                                          hit.transform == player4.transform))
             {
-                // Destruye el objeto del jugador
-                Destroy(player2);
+                // Reposicionar y activar las partículas
+                currentImpactParticles.transform.position = hit.point;
 
-                // Evita intentar acceder al jugador después de destruirlo
-                player2 = null;
-            }
-            else if (hit.transform != null && hit.transform == player3.transform)
-            {
-                // Destruye el objeto del jugador
-                Destroy(player3);
+                // Asignar una rotación específica a las partículas
+                // Por ejemplo, si quieres que la rotación sea fija en el eje Y en 90 grados:
+                Quaternion desiredRotation = Quaternion.Euler(-90, -270, 0);
+                currentImpactParticles.transform.rotation = desiredRotation;
 
-                // Evita intentar acceder al jugador después de destruirlo
-                player3 = null;
-            }
-            else if (hit.transform != null && hit.transform == player4.transform)
-            {
-                // Destruye el objeto del jugador
-                Destroy(player4);
+                if (!currentImpactParticles.activeInHierarchy)
+                {
+                    currentImpactParticles.SetActive(true);
+                }
 
-                // Evita intentar acceder al jugador después de destruirlo
-                player4 = null;
+                // Si el rayo detecta al jugador, destruirlo
+                if (hit.transform == player1.transform)
+                {
+                    Destroy(player1);
+                    player1 = null;
+                }
+                else if (hit.transform == player2.transform)
+                {
+                    Destroy(player2);
+                    player2 = null;
+                }
+                else if (hit.transform == player3.transform)
+                {
+                    Destroy(player3);
+                    player3 = null;
+                }
+                else if (hit.transform == player4.transform)
+                {
+                    Destroy(player4);
+                    player4 = null;
+                }
             }
             else
             {
-                // Si el rayo no detecta el escudo ni al jugador, extiende el láser a una distancia máxima hacia abajo
-                lineRenderer.SetPosition(1, laserStart.position + direction * 100); // 100 es una distancia arbitraria
+                // Si no hay impacto, extender el láser a la distancia máxima y desactivar las partículas
+                lineRenderer.SetPosition(1, laserStart.position + direction * 100);
+                if (currentImpactParticles.activeInHierarchy)
+                {
+                    currentImpactParticles.SetActive(false);
+                }
             }
         }
         else
         {
-            // Si no detecta nada, extiende el láser hacia abajo a la distancia máxima
+            // Si no se detecta nada, extender el láser hacia abajo y desactivar las partículas
             lineRenderer.SetPosition(1, laserStart.position + direction * 100);
+            if (currentImpactParticles.activeInHierarchy)
+            {
+                currentImpactParticles.SetActive(false);
+            }
         }
     }
 }
