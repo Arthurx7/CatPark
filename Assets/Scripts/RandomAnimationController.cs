@@ -29,7 +29,7 @@ public class RandomAnimationController : MonoBehaviour
         }
 
         // Verificar si la animación de caminar está activa
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Walking01") || animator.GetCurrentAnimatorStateInfo(0).IsName("WiggingTail"))
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Walking02") || animator.GetCurrentAnimatorStateInfo(0).IsName("WiggingTail"))
         {
             Jump();
         }
