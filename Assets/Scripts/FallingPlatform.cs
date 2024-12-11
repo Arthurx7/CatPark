@@ -11,7 +11,7 @@ public class FallingPlatform : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(StartFallingAfterDelay(1)); 
+            StartCoroutine(StartFallingAfterDelay(1.5f)); 
         }
     }
 
